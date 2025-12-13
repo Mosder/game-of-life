@@ -102,7 +102,7 @@ int* count_neighbors_row(int width, char *row, char *row_above, char *row_below)
 			shifted_bytes[7] = *(row_below+width_bytes-1) << 1;
 
 			// clip extra bits
-			int extra_bits = 8 - width%8;
+			int extra_bits = width%8 ? 8 - width%8 : 0;
 			char byte_mask = 0xFF;
 			byte_mask <<= extra_bits;
 			for (int i = 0; i < 8; i++)
