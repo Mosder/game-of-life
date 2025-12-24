@@ -1,3 +1,4 @@
+#include "common.h"
 #include "bitmap.h"
 
 // Initializes and returns a bitmap of 0's with inputted height and width
@@ -38,16 +39,6 @@ byte get_bit(Bitmap bitmap, uint16 row, uint16 col) {
 	uint16 col_byte = col / 8;
 	uint8 bit = 7 - col%8;
 	return (bitmap.map[row * bitmap.width_bytes + col_byte] >> bit) & 1;
-}
-
-// Prints a bitmap
-void print_bitmap(Bitmap bitmap) {
-	for (uint16 r = 0; r < bitmap.height; r++) {
-		for (uint16 c = 0; c < bitmap.width; c++)
-			printf("%hhu", get_bit(bitmap, r, c));
-		printf("\n");
-	}
-	printf("\n");
 }
 
 // Shifts 2 bytes and returns OR of them
@@ -185,19 +176,5 @@ void convolve_conway(Bitmap *bitmap) {
 	free(bitmap->map);
 	free(zeros);
 	bitmap->map = new_map;
-}
-
-int main() {
-	Bitmap bitmap = init_bitmap();
-
-	set_byte(&bitmap, 1, 0, 0b00111000);
-	set_byte(&bitmap, 4, 0, 0b00110000);
-	set_byte(&bitmap, 5, 0, 0b00110000);
-	print_bitmap(bitmap);
-
-	for (uint8 i = 0; i < 5; i++) {
-		convolve_conway(&bitmap);
-		print_bitmap(bitmap);
-	}
 }
 
