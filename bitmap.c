@@ -41,6 +41,13 @@ byte get_bit(Bitmap bitmap, uint16 row, uint16 col) {
 	return (bitmap.map[row * bitmap.width_bytes + col_byte] >> bit) & 1;
 }
 
+// Invert a single bit in bitmap
+void invert_bit(Bitmap *bitmap, uint16 row, uint16 col) {
+	uint16 col_byte = col / 8;
+	uint8 bit = 7 - col%8;
+	bitmap->map[row * bitmap->width_bytes + col_byte] ^= 1 << bit;
+}
+
 // Shifts 2 bytes and returns OR of them
 // Used for determining bytes representing neighboring bits
 byte shift_or_bytes(byte byte1, uint8 shift1, byte byte2, uint8 shift2) {
