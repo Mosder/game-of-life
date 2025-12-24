@@ -25,6 +25,7 @@ void play(Bitmap bitmap) {
 }
 
 int main() {
+	clear_terminal();
 	Bitmap bitmap = init_bitmap();
 	setup_bitmap(&bitmap);
 	play(bitmap);
