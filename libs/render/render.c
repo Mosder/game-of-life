@@ -35,12 +35,6 @@ void print_bitmap(Bitmap bitmap) {
 		printf("%s\n", COL_SPLIT_STR);
 	}
 	print_row_split(bitmap);
-	for (uint16 r = 0; r < bitmap.height; r++) {
-		for (uint16 c = 0; c < bitmap.width; c++) {
-			printf("%hhu", get_bit(bitmap, r, c));
-		}
-		printf("\n");
-	}
 }
 
 // Print setup bitmap (before starting) on a terminal

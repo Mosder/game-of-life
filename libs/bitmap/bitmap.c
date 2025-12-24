@@ -175,7 +175,7 @@ void convolve_conway(Bitmap *bitmap) {
 
 		// decide fate of the current row and set it in the new map
 		byte *new_fate = decide_fate_row(curr_row, bitmap->width, bitmap->width_bytes, counts);
-		*(new_map + r*bitmap->width_bytes) = *new_fate;
+		memmove(new_map + r*bitmap->width_bytes, new_fate, sizeof(byte) * bitmap->width_bytes);
 
 		// update prev row
 		prev_row = curr_row;
