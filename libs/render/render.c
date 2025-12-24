@@ -1,5 +1,5 @@
-#include "common.h"
-#include "bitmap.h"
+#include "../common.h"
+#include "../bitmap/bitmap.h"
 #include "render.h"
 
 #define CELL_WIDTH 2

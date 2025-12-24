@@ -1,4 +1,4 @@
-#include "common.h"
+#include "../common.h"
 #include "bitmap.h"
 
 // Initializes and returns a bitmap of 0's with inputted height and width

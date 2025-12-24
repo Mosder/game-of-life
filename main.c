@@ -1,7 +1,7 @@
-#include "common.h"
-#include "bitmap.h"
-#include "setup.h"
-#include "render.h"
+#include "libs/common.h"
+#include "libs/bitmap/bitmap.h"
+#include "libs/setup/setup.h"
+#include "libs/render/render.h"
 
 void setup_bitmap(Bitmap *bitmap) {
 	uint16 r = 0;
