@@ -15,8 +15,9 @@ void clear_terminal() {
 // Prints a line that splits rows
 void print_row_split(Bitmap bitmap) {
 	for (uint16 c = 0; c < bitmap.width; c++)
-		printf("---");
-	printf("-\n");
+		for (uint8 i = 0; i < 3; i++)
+			printf("%s", ROW_SPLIT_STR);
+	printf("%s\n", ROW_SPLIT_STR);
 }
 
 // Prints bitmap on a terminal
