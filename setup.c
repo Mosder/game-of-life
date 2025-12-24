@@ -26,7 +26,7 @@
 
 // Print setup keybinds
 void print_setup_keys() {
-	printf("Movement - %c%c%c%c / \u2190\u2193\u2191\u2192\n", RIGHT, DOWN, UP, LEFT);
+	printf("Movement - %c%c%c%c / \u2190\u2193\u2191\u2192\n", LEFT, DOWN, UP, RIGHT);
 	printf("Change bit - %c / Space\n", ACCEPT);
 	printf("Finish setup - %c / Return\n", QUIT);
 }
