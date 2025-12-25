@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include <termios.h>
 
 extern void print_setup_keys();

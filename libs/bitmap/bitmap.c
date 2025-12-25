@@ -14,7 +14,6 @@ Bitmap init_bitmap() {
 		printf("Width (1-65535): ");
 		scanf("%hu", &width);
 	}
-	printf("\n");
 
 	uint16 width_bytes = (width+7) / 8;
 	uint32 size = height * width_bytes;
