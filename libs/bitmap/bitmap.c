@@ -29,11 +29,6 @@ Bitmap init_bitmap() {
 	return bitmap;
 }
 
-// Sets a whole byte in a bitmap
-void set_byte(Bitmap *bitmap, uint16 row, uint16 col_byte, byte val) {
-	bitmap->map[row * bitmap->width_bytes + col_byte] = val;
-}
-
 // Returns a bit on a given position in a bitmap
 byte get_bit(Bitmap bitmap, uint16 row, uint16 col) {
 	uint16 col_byte = col / 8;
@@ -143,10 +138,11 @@ byte* decide_fate_row(byte *row, uint16 width, uint16 width_bytes, uint8 *counts
 		byte mask_3_neighbors = 0;
 		for (uint8 bit = 0; bit < 8; bit++) {
 			// access the bits from the least significant bit in a byte
-			if (counts[8*col_byte + 7-bit] == 2)
+			uint8 count = counts[8*col_byte + 7-bit];
+			if (count == 2)
 				mask_2_neighbors |= 1 << bit;
-			else if (counts[8*col_byte + 7-bit] == 3)
-	    			mask_3_neighbors |= 1 << bit;
+			else if (count == 3)
+				mask_3_neighbors |= 1 << bit;
 		}
 		// if 3 neighbors - always alive next frame
 		// if 2 neighbors - stays alive

@@ -4,15 +4,13 @@
 #include "libs/render/render.h"
 
 void setup_bitmap(Bitmap *bitmap) {
-	uint16 r = 0;
-	uint16 c = 0;
-	while (1) {
+	uint16 row = 0;
+	uint16 col = 0;
+	do {
 		clear_terminal();
-		print_setup_bitmap(*bitmap, r, c);
+		print_setup_bitmap(*bitmap, row, col);
 		print_setup_keys();
-		if (setup_step(bitmap, &r, &c))
-			break;
-	}
+	} while (!setup_step(bitmap, &row, &col));
 }
 
 void play(Bitmap bitmap) {
@@ -30,3 +28,4 @@ int main() {
 	setup_bitmap(&bitmap);
 	play(bitmap);
 }
+

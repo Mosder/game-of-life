@@ -54,3 +54,4 @@ void print_setup_bitmap(Bitmap bitmap, uint16 row, uint16 col) {
 	}
 	print_row_split(bitmap);
 }
+
